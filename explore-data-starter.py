@@ -24,22 +24,22 @@ def explore_bc_ai_survey():
     # Find the data file
     data_file = "Hackathon round 3 with demos[48].csv"
     if not Path(data_file).exists():
-        print(f"❌ Data file not found: {data_file}")
+        print(f"■ Data file not found: {data_file}")
         print("Make sure you're running this script from the repository root directory.")
         return
     
-    print("🚀 BC AI Survey Data Explorer")
+    print("■ BC AI Survey Data Explorer")
     print("=" * 50)
     
     try:
         # Load the data
-        print("📊 Loading survey data...")
+        print("■ Loading survey data...")
         df = pd.read_csv(data_file)
-        print(f"✅ Loaded {len(df)} responses with {len(df.columns)} columns")
+        print(f"■ Loaded {len(df)} responses with {len(df.columns)} columns")
         print()
         
         # Basic overview
-        print("📋 Dataset Overview:")
+        print("■ Dataset Overview:")
         print(f"   • Total responses: {len(df):,}")
         print(f"   • Total columns: {len(df.columns):,}")
         print(f"   • Response rate: ~{len(df)} out of 1,001 target")
@@ -50,14 +50,14 @@ def explore_bc_ai_survey():
         sentiment_columns = [col for col in df.columns if 'sentiment_percentage' in col]
         demo_columns = ['AgeRollup_Broad', 'Q1_Location_in_BC', 'Q1_Experience_with_AI']
         
-        print("🔍 Column Categories:")
+        print("■ Column Categories:")
         print(f"   • Open-ended responses (_OE): {len(oe_columns)}")
         print(f"   • Sentiment scores: {len(sentiment_columns)}")
         print(f"   • Demographic fields: {len(demo_columns)}")
         print()
         
         # Demographics snapshot
-        print("👥 Demographics Snapshot:")
+        print("■ Demographics Snapshot:")
         if 'AgeRollup_Broad' in df.columns:
             age_dist = df['AgeRollup_Broad'].value_counts()
             for age, count in age_dist.items():
@@ -66,7 +66,7 @@ def explore_bc_ai_survey():
         print()
         
         if 'Q1_Location_in_BC' in df.columns:
-            print("🗺️  Geographic Distribution:")
+            print("■ Geographic Distribution:")
             location_dist = df['Q1_Location_in_BC'].value_counts().head(5)
             for location, count in location_dist.items():
                 pct = (count / len(df)) * 100
@@ -75,7 +75,7 @@ def explore_bc_ai_survey():
         
         # AI Experience levels
         if 'Q1_Experience_with_AI' in df.columns:
-            print("🤖 AI Experience Levels:")
+            print("■ AI Experience Levels:")
             exp_dist = df['Q1_Experience_with_AI'].value_counts()
             for exp, count in exp_dist.items():
                 pct = (count / len(df)) * 100
@@ -83,14 +83,14 @@ def explore_bc_ai_survey():
         print()
         
         # Sample some interesting quotes
-        print("💬 Sample Quotes (Open-Ended Responses):")
+        print("■ Sample Quotes (Open-Ended Responses):")
         print("   (These are the storytelling goldmines!)")
         print()
         
         # Q17 Advice to leaders
         if 'Q17_Advice_BC_Leaders_text_OE' in df.columns:
             q17_responses = df['Q17_Advice_BC_Leaders_text_OE'].dropna()
-            print("   📝 Advice to BC Leaders (Q17):")
+            print("   ■ Advice to BC Leaders (Q17):")
             for i, response in enumerate(q17_responses.head(3)):
                 if len(response.strip()) > 10:
                     preview = response[:80] + "..." if len(response) > 80 else response
@@ -99,7 +99,7 @@ def explore_bc_ai_survey():
             print()
         
         # Sentiment patterns
-        print("😊😟 Sentiment Patterns:")
+        print("■ Sentiment Patterns:")
         sample_sentiment_col = [col for col in sentiment_columns if 'Q17' in col]
         if sample_sentiment_col:
             col = sample_sentiment_col[0]
@@ -115,9 +115,9 @@ def explore_bc_ai_survey():
         print()
         
         # Next steps guidance
-        print("🎯 Ready to Dive Deeper?")
+        print("■ Ready to Dive Deeper?")
         print()
-        print("   🔥 Hot Tips for Exploration:")
+        print("   ■ Hot Tips for Exploration:")
         print("   1. Focus on open-ended columns (*_OE) for authentic quotes")
         print("   2. Cross-reference sentiment with demographics")
         print("   3. Look for patterns in AI experience vs attitudes")
@@ -125,7 +125,7 @@ def explore_bc_ai_survey():
         print("   5. Find the extreme voices (99%+ positive/negative sentiment)")
         print()
         
-        print("   📊 Suggested Next Steps:")
+        print("   ■ Suggested Next Steps:")
         print("   • Load data: df = pd.read_csv('Hackathon round 3 with demos[48].csv')")
         print("   • Explore quotes: df['Q17_Advice_BC_Leaders_text_OE'].dropna()")
         print("   • Check sentiment: df['Q17_Advice_BC_Leaders_text_OE_sentiment_percentage']")
@@ -133,12 +133,12 @@ def explore_bc_ai_survey():
         print("   • Find patterns: df.groupby('Q1_Experience_with_AI')['sentiment_col'].mean()")
         print()
         
-        print("🚀 Happy Data Storytelling!")
+        print("■ Happy Data Storytelling!")
         print("   Remember: Every row is a real British Columbian's voice.")
         print("   Your job is to help those voices be heard!")
         
     except Exception as e:
-        print(f"❌ Error loading data: {e}")
+        print(f"■ Error loading data: {e}")
         print("Make sure pandas is installed: pip install pandas")
 
 if __name__ == "__main__":
