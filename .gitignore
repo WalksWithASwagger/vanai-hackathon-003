@@ -53,3 +53,6 @@ wheels/
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Kris Krug's personal analysis files
+kk-files/
