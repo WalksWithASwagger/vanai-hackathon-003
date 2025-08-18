@@ -101,6 +101,11 @@ vanai-hackathon-003/
 ├── LICENSE                                # Open source license
 ├── Hackathon round 3 with demos[48].csv   # Main dataset (1,001 responses)
 ├── BC_AI_Survey_Updated[5].docx           # Survey methodology
+├── submissions/                           # 🏆 Hackathon submissions
+│   ├── team-01/                          # First team submission
+│   ├── team-02/                          # Second team submission
+│   └── examples/                         # Additional submissions
+├── bc-ai-dashboard-ui/                    # Example React dashboard
 └── .gitignore                             # Keeps personal work private
 ```
 
